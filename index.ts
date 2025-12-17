@@ -30,7 +30,6 @@ export const modernCsrf =
         return status(403, "Forbidden: Cross-Site Request Blocked");
       })
       .onAfterHandle(({ set }) => {
-        // D. Append 'Sec-Fetch-Site' to Vary header
         // This ensures caches treat requests from different origins differently
         const currentVary = set.headers["Vary"];
         const varyString = typeof currentVary === "string" ? currentVary : "";
