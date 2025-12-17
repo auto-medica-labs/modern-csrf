@@ -1,7 +1,8 @@
 # Modern CSRF Protection for Elysia.js
 
-A lightweight, token-free CSRF protection middleware for Elysia.js that leverages modern browser security headers (`Sec-Fetch-Site`) instead of traditional CSRF tokens.
+A lightweight, token-free CSRF protection middleware for ElysiaJS that leverages modern browser security headers (`Sec-Fetch-Site`) instead of traditional CSRF tokens.
 
+> This project is heavily influenced by Rails 8.2, particularly from this [PR](https://github.com/rails/rails/pull/56350)
 ## Why This Approach?
 
 Traditional CSRF protection requires:
@@ -163,5 +164,5 @@ MIT
 Contributions welcome! Please open an issue or PR.
 
 ## Credits
-
-Built for Elysia.js with ❤️
+Inspiration from Rails 8.2 with this [PR](https://github.com/rails/rails/pull/56350)  
+Built for ElysiaJS with ❤️
