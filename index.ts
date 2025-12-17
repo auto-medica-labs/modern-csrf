@@ -6,7 +6,7 @@ const ALLOWED_SITES = new Set(["same-origin", "same-site"]);
 export const modernCsrf =
   (config?: { trustedOrigins?: string[] }) => (app: Elysia) => {
     return app
-      .onBeforeHandle(({ request, set }) => {
+      .onBeforeHandle(({ request, status }) => {
         if (SAFE_METHODS.has(request.method)) return;
 
         const secFetchSite = request.headers.get("Sec-Fetch-Site");
@@ -27,8 +27,7 @@ export const modernCsrf =
         }
 
         // Case 3: Header is missing, 'none', or 'cross-site' (untrusted) -> FAIL
-        set.status = 403;
-        return "Forbidden: Cross-Site Request Blocked";
+        return status(403, "Forbidden: Cross-Site Request Blocked");
       })
       .onAfterHandle(({ set }) => {
         // D. Append 'Sec-Fetch-Site' to Vary header
