@@ -76,7 +76,6 @@ describe("Modern CSRF", () => {
       const response = await app.handle(
         new Request("http://localhost/", {
           method: "POST",
-          // Headers explicitly missing
         }),
       );
       expect(response.status).toBe(403);
